@@ -137,7 +137,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm run prettier && npm run types"
+      "pre-push": "npm run prettier && npm run types && run tests"
     }
   },
   "nyc": {
