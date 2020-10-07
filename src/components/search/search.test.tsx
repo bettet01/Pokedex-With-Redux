@@ -4,17 +4,11 @@ import Search from "./Serach";
 
 describe("Pokemon Info Component", () => {
   let component: ShallowWrapper<any, any>;
-  let rootComponent: ShallowWrapper<
-    any,
-    React.Component["state"],
-    React.Component
-  >;
   const mockHistory = {
     push: () => {},
   };
   const setup = (data: any) => {
-    rootComponent = shallow(<Search history={mockHistory} />);
-    component = rootComponent;
+    component = shallow(<Search history={mockHistory} />);
   };
 
   it("should change the search on input", function () {
