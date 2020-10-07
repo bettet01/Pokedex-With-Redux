@@ -31,16 +31,16 @@ const Pokemon = (props: PokemonProps) => {
             return <InfoContainer>
                 <div>
                     <h2>Sprites</h2>
-                    <img src={pokemonData.sprites.front_default} alt=""/>
+                    <img data-test-id="img1" src={pokemonData.sprites.front_default} alt=""/>
                     <img src={pokemonData.sprites.back_default} alt=""/>
                     <img src={pokemonData.sprites.front_shiny} alt=""/>
                     <img src={pokemonData.sprites.back_shiny} alt=""/>
                 </div>
                 <div>
-                    <h2>Base Stats</h2>
+                    <h2 >Base Stats</h2>
                     {pokemonData.stats.map((item, key: number) => {
                         return(
-                            <p key={key}>{item.stat.name}: {item.base_stat}</p>
+                            <p key={key} data-test-id="stats">{item.stat.name}: {item.base_stat}</p>
                         )
                     })}
                 </div>
@@ -56,14 +56,12 @@ const Pokemon = (props: PokemonProps) => {
         }
 
         if (pokemonState.loading) {
-            return <p>Loading...</p>
+            return <p data-test-id="loading">Loading...</p>
         }
 
         if (pokemonState.errorMessage !== "") {
-            return <p>{pokemonState.errorMessage}</p>
+            return <p data-test-id="errorMessage">{pokemonState.errorMessage}</p>
         }
-
-        return <p>Unable to load pokemon</p>
     }
 
     return (
