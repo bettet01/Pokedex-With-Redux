@@ -11,27 +11,23 @@ const mockStore = configureStore(middlewares);
 
 describe("Pokemon Info Component", () => {
   let store: Store<any, AnyAction>;
-  let rootComponent: ReactWrapper<
-    any,
-    Readonly<{}>,
-    React.Component<{}, {}, any>
-  >;
   let component: ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
   const setup = (data: any) => {
     store = mockStore({
       ...data,
     });
-    rootComponent = mount(
+    const mockProps = {
+      params: {
+        pokemon: "Ethan",
+      },
+    };
+
+    const rootComponent = mount(
       <Provider store={store}>
         <Pokemon match={mockProps} />
       </Provider>
     );
     component = rootComponent.childAt(0);
-  };
-  const mockProps = {
-    params: {
-      pokemon: "Ethan",
-    },
   };
 
   it("should display loading", function () {

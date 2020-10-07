@@ -8,16 +8,20 @@ interface SearchProps {
 
 const Search = (props: SearchProps) => {
   const [search, setSearch] = useState("");
+
+  const redirectPage = (e: React.MouseEvent<HTMLButtonElement>) => {
+    props.history.push(`/pokemon/${search}`);
+  };
+
   return (
     <div>
       <input
         placeholder="Search"
         type="text"
+        value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
-      <button onClick={() => props.history.push(`/pokemon/${search}`)}>
-        Search{" "}
-      </button>
+      <button onClick={redirectPage}>Search </button>
     </div>
   );
 };
