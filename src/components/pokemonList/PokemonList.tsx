@@ -3,15 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/reducers/RootReducer";
 
 import _ from "lodash";
-import { getPokemonList } from "../../redux/actions/pokemonActions";
+import { getPokemonList } from "../../redux/actions/pokemonActions/pokemonActions";
 import { ListItem, ListLink, ListWrapper } from "./style";
 import { Pokemon } from "../../models/genericModels";
 import Search from "../search/Serach";
 import { useHistory } from "react-router";
 
-interface PokemonListProps {
-  something: string;
-}
+interface PokemonListProps {}
 
 const PokemonList = (props: PokemonListProps) => {
   let history = useHistory();
@@ -33,7 +31,7 @@ const PokemonList = (props: PokemonListProps) => {
       return (
         <>
           <Search history={history} />
-          <ListWrapper>
+          <ListWrapper test-data-id="pokeList">
             {pokemonList.data.map((item: Pokemon, key: number) => {
               return (
                 <ListItem key={key}>
@@ -47,14 +45,12 @@ const PokemonList = (props: PokemonListProps) => {
       );
     }
     if (pokemonList.loading) {
-      return <p>is Loading</p>;
+      return <p test-data-id="loading">is Loading</p>;
     }
 
     if (pokemonList.errorMessage !== "") {
       return <p>{pokemonList.errorMessage}</p>;
     }
-
-    return <p>unable to get data</p>;
   };
   return <div>{showData()}</div>;
 };
