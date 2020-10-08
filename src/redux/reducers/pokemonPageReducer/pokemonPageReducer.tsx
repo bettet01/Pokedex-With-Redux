@@ -1,5 +1,5 @@
-import { PokemonPageState } from "../../models/genericModels";
-import { PokemonPageAction } from "../../models/actionModels";
+import { PokemonPageState } from "../../../models/genericModels";
+import { PokemonPageAction } from "../../../models/actionModels";
 
 const defaultState: PokemonPageState = {
   data: {},

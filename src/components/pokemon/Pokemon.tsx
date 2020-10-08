@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/reducers/RootReducer";
-import { getPokemon } from "../../redux/actions/pokemonActions";
+import { getPokemon } from "../../redux/actions/pokemonActions/pokemonActions";
 import _ from "lodash";
 import { InfoContainer } from "./styles";
 import { PokemonInfo } from "../../models/genericModels";

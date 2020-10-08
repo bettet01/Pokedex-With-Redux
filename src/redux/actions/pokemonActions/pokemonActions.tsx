@@ -1,5 +1,5 @@
-import { getPaginatedList, getPokemonInfo } from "../../util/pokeApi";
-import { PaginationRequest } from "../../models/actionModels";
+import { getPaginatedList, getPokemonInfo } from "../../../util/pokeApi";
+import { PaginationRequest } from "../../../models/actionModels";
 
 export const getPokemonList = (page: number) => async (dispatch: any) => {
   try {

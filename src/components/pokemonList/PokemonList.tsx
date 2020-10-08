@@ -3,15 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/reducers/RootReducer";
 
 import _ from "lodash";
-import { getPokemonList } from "../../redux/actions/pokemonActions";
+import { getPokemonList } from "../../redux/actions/pokemonActions/pokemonActions";
 import { ListItem, ListLink, ListWrapper } from "./style";
 import { Pokemon } from "../../models/genericModels";
 import Search from "../search/Serach";
 import { useHistory } from "react-router";
 
-interface PokemonListProps {
-
-}
+interface PokemonListProps {}
 
 const PokemonList = (props: PokemonListProps) => {
   let history = useHistory();

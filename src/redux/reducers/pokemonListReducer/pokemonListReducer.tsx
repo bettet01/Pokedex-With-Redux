@@ -1,5 +1,5 @@
-import { PokemonListState } from "../../models/genericModels";
-import { PokemonListAction } from "../../models/actionModels";
+import { PokemonListState } from "../../../models/genericModels";
+import { PokemonListAction } from "../../../models/actionModels";
 
 const defaultState: PokemonListState = {
   loading: false,
