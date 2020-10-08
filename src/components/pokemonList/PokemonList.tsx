@@ -10,7 +10,7 @@ import Search from "../search/Serach";
 import { useHistory } from "react-router";
 
 interface PokemonListProps {
-  something: string;
+
 }
 
 const PokemonList = (props: PokemonListProps) => {
@@ -33,7 +33,7 @@ const PokemonList = (props: PokemonListProps) => {
       return (
         <>
           <Search history={history} />
-          <ListWrapper>
+          <ListWrapper test-data-id="pokeList">
             {pokemonList.data.map((item: Pokemon, key: number) => {
               return (
                 <ListItem key={key}>
@@ -47,14 +47,12 @@ const PokemonList = (props: PokemonListProps) => {
       );
     }
     if (pokemonList.loading) {
-      return <p>is Loading</p>;
+      return <p test-data-id="loading">is Loading</p>;
     }
 
     if (pokemonList.errorMessage !== "") {
       return <p>{pokemonList.errorMessage}</p>;
     }
-
-    return <p>unable to get data</p>;
   };
   return <div>{showData()}</div>;
 };
