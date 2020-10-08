@@ -2,6 +2,9 @@ codecov:
   require_ci_to_pass: true
 ignore:
   - "src/index.tsx"
+  - "src/setupTests.tsx"
+  - "src/models/**"
+  - "src/redux/reducers/RootReducer.tsx"
 coverage:
   precision: 2
   round: nearest
