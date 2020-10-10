@@ -8,12 +8,13 @@ interface PaginatorProps {
 }
 
 const Paginator = (props: PaginatorProps) => {
+  const pageChange = (data: number) => {
+    props.fetchData(data + 1);
+    window.scrollTo(0, 0);
+  }
   return (
     <ReactPaginate
-      onPageChange={(data) => {
-        props.fetchData(data.selected + 1);
-        window.scrollTo(0, 0);
-      }}
+      onPageChange={(data) => { pageChange(data.selected)}}
       marginPagesDisplayed={1}
       pageCount={Math.ceil(props.count / 15)}
       pageRangeDisplayed={2}

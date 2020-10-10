@@ -51,6 +51,8 @@ describe("Pokemon Info Component", () => {
         data: [{ name: "testPoke1" }, { name: "testPoke2" }],
       },
     });
-    expect(component.text()).toEqual("Search testPoke1ViewtestPoke2ViewPreviousNext");
+    expect(component.text()).toEqual(
+      "Search testPoke1ViewtestPoke2ViewPreviousNext"
+    );
   });
 });

@@ -1,5 +1,5 @@
 import React from "react";
-import {mount, ReactWrapper, shallow, ShallowWrapper} from "enzyme";
+import { mount, ReactWrapper, shallow, ShallowWrapper } from "enzyme";
 import Search from "./Serach";
 
 describe("Pokemon Info Component", () => {
