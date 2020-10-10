@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/reducers/RootReducer";
+import ReactPaginate from "react-paginate";
 
 import _ from "lodash";
 import { getPokemonList } from "../../redux/actions/pokemonActions/pokemonActions";

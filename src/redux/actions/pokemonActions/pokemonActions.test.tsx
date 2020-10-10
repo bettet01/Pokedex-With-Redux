@@ -1,10 +1,8 @@
 import thunk from "redux-thunk";
 import * as actions from "./pokemonActions";
 import configureStore, { MockStoreEnhanced } from "redux-mock-store";
-import React from "react";
 import { PokemonListState } from "../../../models/genericModels";
 import moxios from "moxios";
-import { object } from "yup";
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
