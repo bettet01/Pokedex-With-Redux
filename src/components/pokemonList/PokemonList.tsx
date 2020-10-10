@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/reducers/RootReducer";
-import ReactPaginate from "react-paginate";
 
 import _ from "lodash";
 import { getPokemonList } from "../../redux/actions/pokemonActions/pokemonActions";
@@ -9,6 +8,7 @@ import { ListItem, ListLink, ListWrapper } from "./style";
 import { Pokemon } from "../../models/genericModels";
 import Search from "../search/Serach";
 import { useHistory } from "react-router";
+import Paginator from "../paginator/paginator";
 
 interface PokemonListProps {}
 
@@ -16,6 +16,7 @@ const PokemonList = (props: PokemonListProps) => {
   let history = useHistory();
   const dispatch = useDispatch();
   const pokemonList = useSelector((state: RootState) => state.PokemonList);
+
 
   const fetchData = (page = 1) => {
     dispatch(getPokemonList(page));
@@ -42,7 +43,7 @@ const PokemonList = (props: PokemonListProps) => {
               );
             })}
           </ListWrapper>
-          <ReactPaginate />
+          <Paginator fetchData={fetchData} count={pokemonList.count} />
         </>
       );
     }

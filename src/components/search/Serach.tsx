@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Button, Container, Input} from "./styles";
 
 interface SearchProps {
   history: {
@@ -14,15 +15,15 @@ const Search = (props: SearchProps) => {
   };
 
   return (
-    <div>
-      <input
+    <Container>
+      <Input
         placeholder="Search"
         type="text"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
-      <button onClick={redirectPage}>Search </button>
-    </div>
+      <Button onClick={redirectPage}>Search </Button>
+    </Container>
   );
 };
 

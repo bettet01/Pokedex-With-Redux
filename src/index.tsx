@@ -1,4 +1,5 @@
 import React from "react";
+import 'normalize.css';
 import ReactDOM from "react-dom";
 import App from "./containers/App";
 import { applyMiddleware, createStore } from "redux";
