@@ -1,14 +1,14 @@
 import React from "react";
-import { shallow, ShallowWrapper } from "enzyme";
+import {mount, ReactWrapper, shallow, ShallowWrapper} from "enzyme";
 import Search from "./Serach";
 
 describe("Pokemon Info Component", () => {
-  let component: ShallowWrapper<any, any>;
+  let component: ReactWrapper<any, React.Component["state"], React.Component>;
   const mockHistory = {
     push: () => {},
   };
   const setup = (data: any) => {
-    component = shallow(<Search history={mockHistory} />);
+    component = mount(<Search history={mockHistory} />);
   };
 
   it("should change the search on input", function () {

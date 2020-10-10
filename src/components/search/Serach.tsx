@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Button, Container, Input} from "./styles";
+import { Button, Container, Input } from "./styles";
 
 interface SearchProps {
   history: {

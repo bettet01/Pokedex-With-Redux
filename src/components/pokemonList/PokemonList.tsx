@@ -17,7 +17,6 @@ const PokemonList = (props: PokemonListProps) => {
   const dispatch = useDispatch();
   const pokemonList = useSelector((state: RootState) => state.PokemonList);
 
-
   const fetchData = (page = 1) => {
     dispatch(getPokemonList(page));
   };
