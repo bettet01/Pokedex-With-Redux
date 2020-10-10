@@ -41,6 +41,7 @@ const PokemonList = (props: PokemonListProps) => {
               );
             })}
           </ListWrapper>
+          <ReactPaginate />
         </>
       );
     }

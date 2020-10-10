@@ -1,10 +1,10 @@
 import thunk from "redux-thunk";
 import * as actions from "./pokemonActions";
-import configureStore, {MockStoreEnhanced} from "redux-mock-store";
+import configureStore, { MockStoreEnhanced } from "redux-mock-store";
 import React from "react";
-import {PokemonListState} from "../../../models/genericModels";
-import moxios from 'moxios';
-import {object} from "yup";
+import { PokemonListState } from "../../../models/genericModels";
+import moxios from "moxios";
+import { object } from "yup";
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -111,99 +111,106 @@ describe("pokemon Actions Tests", () => {
     moxios.uninstall();
   });
 
-  const mockSuccess = (data: any) => ({ status: 200, response: { res }});
-  const mockError = (error: any) => ({ status: 503, response: { errorMessage: error}});
+  const mockSuccess = (data: any) => ({ status: 200, response: { res } });
+  const mockError = (error: any) => ({
+    status: 503,
+    response: { errorMessage: error },
+  });
 
   it("should create POKEMON_LIST_SUCCESS when getting todos", function () {
     setup({
       loading: false,
       errorMessage: "",
-      data: []
-    } as PokemonListState)
+      data: [],
+    } as PokemonListState);
 
     moxios.wait(() => {
       const request = moxios.requests.mostRecent();
       request.respondWith(mockSuccess(res));
-    })
+    });
 
     const expectedResult = [
-      { type: 'POKEMON_LIST_LOADING'},
-      { type: 'POKEMON_LIST_SUCCESS', payload: { res}}
-    ]
+      { type: "POKEMON_LIST_LOADING" },
+      { type: "POKEMON_LIST_SUCCESS", payload: { res } },
+    ];
 
     // @ts-ignore
     return store.dispatch(actions.getPokemonList(1)).then(() => {
-      console.log(store.getActions())
-      expect(store.getActions()).toEqual(expectedResult)
-    })
+      console.log(store.getActions());
+      expect(store.getActions()).toEqual(expectedResult);
+    });
   });
-  it('should send a POKEMON_LIST_FAIL action', function () {
+  it("should send a POKEMON_LIST_FAIL action", function () {
     setup({
       loading: false,
       errorMessage: "",
-      data: []
-    } as PokemonListState)
+      data: [],
+    } as PokemonListState);
 
     moxios.wait(() => {
       const request = moxios.requests.mostRecent();
       request.respondWith(mockError("Error Test"));
-    })
+    });
 
     const expectedResult = [
-      { type: 'POKEMON_LIST_LOADING'},
-      { type: 'POKEMON_LIST_FAIL'}
-    ]
+      { type: "POKEMON_LIST_LOADING" },
+      { type: "POKEMON_LIST_FAIL" },
+    ];
 
     // @ts-ignore
     return store.dispatch(actions.getPokemonList(1)).then(() => {
-      console.log(store.getActions())
-      expect(store.getActions()).toEqual(expectedResult)
-    })
+      console.log(store.getActions());
+      expect(store.getActions()).toEqual(expectedResult);
+    });
   });
-  it('should send a POKEMON_MULTIPLE_SUCCESS action', function () {
+  it("should send a POKEMON_MULTIPLE_SUCCESS action", function () {
     setup({
       loading: false,
       errorMessage: "",
-      data: []
-    } as PokemonListState)
+      data: [],
+    } as PokemonListState);
 
     moxios.wait(() => {
       const request = moxios.requests.mostRecent();
       request.respondWith(mockSuccess(res));
-    })
+    });
 
     const expectedResult = [
-      { type: 'POKEMON_MULTIPLE_LOADING'},
-      { type: 'POKEMON_MULTIPLE_SUCCESS', payload: { res }, pokemonName: 'test'}
-    ]
+      { type: "POKEMON_MULTIPLE_LOADING" },
+      {
+        type: "POKEMON_MULTIPLE_SUCCESS",
+        payload: { res },
+        pokemonName: "test",
+      },
+    ];
 
     // @ts-ignore
     return store.dispatch(actions.getPokemon("test")).then(() => {
-      console.log(store.getActions())
-      expect(store.getActions()).toEqual(expectedResult)
-    })
+      console.log(store.getActions());
+      expect(store.getActions()).toEqual(expectedResult);
+    });
   });
-  it('should send a POKEMON_MULTIPLE_FAIL action', function () {
+  it("should send a POKEMON_MULTIPLE_FAIL action", function () {
     setup({
       loading: false,
       errorMessage: "",
-      data: []
-    } as PokemonListState)
+      data: [],
+    } as PokemonListState);
 
     moxios.wait(() => {
       const request = moxios.requests.mostRecent();
       request.respondWith(mockError("Test Error"));
-    })
+    });
 
     const expectedResult = [
-      { type: 'POKEMON_MULTIPLE_LOADING'},
-      { type: 'POKEMON_MULTIPLE_FAIL' }
-    ]
+      { type: "POKEMON_MULTIPLE_LOADING" },
+      { type: "POKEMON_MULTIPLE_FAIL" },
+    ];
 
     // @ts-ignore
     return store.dispatch(actions.getPokemon("test")).then(() => {
-      console.log(store.getActions())
-      expect(store.getActions()).toEqual(expectedResult)
-    })
+      console.log(store.getActions());
+      expect(store.getActions()).toEqual(expectedResult);
+    });
   });
 });
