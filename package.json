@@ -25,7 +25,7 @@
     "@percy/cypress": "2.3.2",
     "@testing-library/jest-dom": "5.11.4",
     "@testing-library/react": "11.0.4",
-    "@testing-library/user-event": "12.1.7",
+    "@testing-library/user-event": "12.7.0",
     "@types/axios": "0.14.0",
     "@types/babel__core": "7.1.10",
     "@types/babel__preset-env": "7.9.1",
